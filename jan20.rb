@@ -84,7 +84,7 @@ root_node.each { |node| node.content.reverse }
 class Depth
   def initialize(tree_obj)
     @tree_obj = tree_obj
-    @ultimate_max = 1
+    @ultimate_max = 0
   end
 
   def max_depth(head, current_max=0)
