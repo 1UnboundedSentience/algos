@@ -23,12 +23,14 @@
 #    +---------------+
 
 # ..... Example starts.
-require 'tree'                 # Load the library
+#Dir["RubyTree/*.rb"].each {|file| require file }
 require 'pry'
 # ..... Create the root node first.
 # ..... Note that every node has a name and an optional content payload.
+Dir["/RubyTree/*.rb"].each {|file| require file }
+binding.pry
 root_node = Tree::TreeNode.new("ROOT", "Root Content")
-#root_node.print_tree
+root_node.print_tree
 
 # ..... Now insert the child nodes.
 #       Note that you can "chain" the child insertions to any depth.
@@ -42,6 +44,7 @@ root_node << Tree::TreeNode.new("CHILD2", "Child2 Content")
 # ..... Lets print the representation to stdout.
 # ..... This is primarily used for debugging purposes.
 root_node.print_tree
+p root_node.left
 
 # ..... Lets directly access children and grandchildren of the root.
 # ..... The can be "chained" for a given path to any depth.
